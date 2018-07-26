@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 for(Recipe r : recipes)
                     recs += r.getSteps().get(2).getShortDescription() + "\n";
 
-                mRestDataTextView.setText(recs);
+                mRestDataTextView.setText(s);
 
 //                adapter.setMovies(movies);
 //                adapter.notifyDataSetChanged();
