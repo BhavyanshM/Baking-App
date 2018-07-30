@@ -7,6 +7,9 @@ import android.net.Network;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,22 +28,28 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv_rest_data) TextView mRestDataTextView;
+//    @BindView(R.id.tv_rest_data) TextView mRestDataTextView;
+    @BindView(R.id.rv_recipes) RecyclerView mRecipesRecyclerView;
 
     private ArrayList<Recipe> recipes;
-
-
+    private RecipesRecyclerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recipes = new ArrayList<>();
         ButterKnife.bind(this);
         if(NetworkUtils.isConnected((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE))){
             new GetRecipeJSONTask().execute("https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json");
         }else{
             Toast.makeText(this, R.string.network_unavailable_error, Toast.LENGTH_LONG).show();
         }
+        adapter = new RecipesRecyclerAdapter(recipes, this);
+        mRecipesRecyclerView.setAdapter(adapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mRecipesRecyclerView.setLayoutManager(linearLayoutManager);
+
     }
 
 
@@ -71,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
                 for(Recipe r : recipes)
                     recs += r.getSteps().get(2).getShortDescription() + "\n";
 
-                mRestDataTextView.setText(s);
+//                mRestDataTextView.setText(s);
 
-//                adapter.setMovies(movies);
-//                adapter.notifyDataSetChanged();
+                adapter.setRecipes(recipes);
+                adapter.notifyDataSetChanged();
 //                if(recyclerSavedState != null){
 //                    grid.onRestoreInstanceState(recyclerSavedState);
 //                }
