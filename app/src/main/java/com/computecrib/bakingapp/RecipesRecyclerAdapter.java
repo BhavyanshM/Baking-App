@@ -1,6 +1,7 @@
 package com.computecrib.bakingapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -39,7 +40,7 @@ public class RecipesRecyclerAdapter extends RecyclerView.Adapter<RecipesRecycler
         Recipe item = recipes.get(position);
         holder.itemView.setTag(position);
         holder.textViewRecipeName.setText(item.getName());
-        holder.textViewRecipeIngredients.setText("Ingredients");
+        holder.textViewRecipeIngredients.setText(item.getIngredientListString());
         holder.textViewRecipeServings.setText(item.getServings());
 //        Glide.with(context)
 //                .load(item.getThumbPath())
@@ -69,7 +70,12 @@ public class RecipesRecyclerAdapter extends RecyclerView.Adapter<RecipesRecycler
 
         @Override
         public void onClick(View view) {
-            view.setBackgroundColor(Color.parseColor("#0000ff"));
+            Intent intent = new Intent(context, RecipeDetailActivity.class);
+            Recipe intentRecipe = recipes.get(getAdapterPosition());
+            intent.putParcelableArrayListExtra("Ingredients", intentRecipe.getIngredients());
+            intent.putParcelableArrayListExtra("Steps", intentRecipe.getSteps());
+            intent.putExtra("IngredientsListString",intentRecipe.getIngredientListString() );
+            context.startActivity(intent);
         }
     }
 }

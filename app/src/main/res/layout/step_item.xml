@@ -15,10 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         card_view:cardCornerRadius="0dp"
         card_view:cardElevation="10dp"
         card_view:layout_constraintEnd_toEndOf="parent"
@@ -32,53 +28,29 @@
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/tv_item_recipe_name"
+                android:id="@+id/tv_item_step_short_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
-                android:textSize="24sp"
-                card_view:layout_constraintBottom_toTopOf="@id/tv_item_recipe_ingredients"
+                android:textSize="18sp"
+                card_view:layout_constraintBottom_toTopOf="@id/tv_item_step_description"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toTopOf="parent"
                 tools:text="Recipe Name" />
 
             <TextView
-                android:id="@+id/tv_item_recipe_ingredients"
-                android:layout_width="250dp"
+                android:id="@+id/tv_item_step_description"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 card_view:layout_constraintBottom_toBottomOf="parent"
                 card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@id/tv_item_recipe_ingredients"
+                card_view:layout_constraintTop_toBottomOf="@id/tv_item_step_short_description"
                 tools:text="Ingredients"/>
 
-            <TextView
-                android:id="@+id/tv_item_recipe_servings_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/item_servings_label"
-                android:textColor="#000000"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_item_recipe_servings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:textColor="#000000"
-                android:textSize="24sp"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintTop_toBottomOf="@+id/tv_item_recipe_servings_label"
-                tools:text="8" />
-
-
         </android.support.constraint.ConstraintLayout>
-
 
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

@@ -1,8 +1,11 @@
 package com.computecrib.bakingapp;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class Recipe {
+public class Recipe implements Parcelable{
 
     private String id;
     private String name;
@@ -19,6 +22,25 @@ public class Recipe {
         this.servings = servings;
         this.image = image;
     }
+
+    protected Recipe(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        servings = in.readString();
+        image = in.readString();
+    }
+
+    public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
+        @Override
+        public Recipe createFromParcel(Parcel in) {
+            return new Recipe(in);
+        }
+
+        @Override
+        public Recipe[] newArray(int size) {
+            return new Recipe[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -66,5 +88,26 @@ public class Recipe {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getIngredientListString(){
+        StringBuilder fullIngredientList = new StringBuilder();
+        for(Ingredient i : ingredients){
+            fullIngredientList.append(i.getIngredient()).append(", ");
+        }
+        return fullIngredientList.toString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(name);
+        parcel.writeString(servings);
+        parcel.writeString(image);
     }
 }

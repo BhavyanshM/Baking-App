@@ -2,4 +2,5 @@
     <string name="app_name">BakingApp</string>
     <string name="network_unavailable_error">Could not connect to the network.</string>
     <string name="item_servings_label">Servings</string>
+    <string name="ingredients">Ingredients</string>
 </resources>
