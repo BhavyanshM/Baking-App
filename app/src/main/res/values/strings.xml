@@ -3,4 +3,6 @@
     <string name="network_unavailable_error">Could not connect to the network.</string>
     <string name="item_servings_label">Servings</string>
     <string name="ingredients">Ingredients</string>
+    <string name="leftbuttonimage">leftButtonImage</string>
+    <string name="rightbuttonimage">rightButtonImage</string>
 </resources>

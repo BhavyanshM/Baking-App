@@ -1,5 +1,6 @@
 package com.computecrib.bakingapp;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,7 @@ public class StepDetailActivity extends AppCompatActivity {
                 .createMediaSource(Uri.parse("https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffd974_-intro-creampie/-intro-creampie.mp4"));
         player.prepare(mediaSource);
         player.setPlayWhenReady(true);
+        mPlayerView.setBackgroundColor(Color.parseColor("#133452"));
     }
 
     @Override
