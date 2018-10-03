@@ -16,12 +16,10 @@
 
         <com.google.android.exoplayer2.ui.PlayerView
             android:id="@+id/pv_step_media"
-            android:layout_width="wrap_content"
-            android:layout_height="250dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </android.support.v7.widget.CardView>
-
-
 
 
     <android.support.v7.widget.CardView
@@ -29,15 +27,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintTop_toBottomOf="@id/cv_step_media"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/cv_step_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_step_media">
 
         <TextView
             android:layout_width="match_parent"
@@ -61,17 +59,17 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageButton
                 android:id="@+id/bv_left_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/ic_launcher_foreground"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/ic_launcher_background"
                 android:contentDescription="@string/leftbuttonimage"
                 app:layout_constraintEnd_toStartOf="@+id/bv_right_button"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -82,10 +80,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:background="@drawable/ic_launcher_foreground"
+                android:background="@drawable/ic_launcher_background"
                 android:contentDescription="@string/rightbuttonimage"
-                app:layout_constraintStart_toEndOf="@string/leftbuttonimage"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@string/leftbuttonimage" />
 
         </android.support.constraint.ConstraintLayout>
 
